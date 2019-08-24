@@ -30,6 +30,7 @@ go build cuppa.go
 ./cuppa -c /youtpath/config.json &
 ```
 
-## 4. 使用
+### 4. 使用
 现在你可以在任何地方使用TCP连接这个服务了，它将会帮你自动转发到remote_addr
+
 enjoy it！
