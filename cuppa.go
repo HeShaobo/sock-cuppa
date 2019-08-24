@@ -22,6 +22,8 @@ const (
     CONNECT_FAIL    = 1
 )
 
+const VERSION = "v0.1"
+
 type Config struct {
     RemoteAddr      string  `json:"remote_addr"`
     LocalPort       int     `json:"local_port"`
@@ -214,9 +216,16 @@ var debug *log.Logger
 
 func main() {
     config := &Config{}
+    var version bool
 
     flag.StringVar(&configFile, "c", "config.json", "specify config file")
+    flag.BoolVar(&version, "v", false, "print version")
     flag.Parse()
+
+    if version {
+        fmt.Printf("Cuppa Version: %s\n", VERSION)
+        os.Exit(0)
+    }
 
     if err := config.LoadConfig(configFile); err != nil {
         fmt.Errorf(err.Error())
