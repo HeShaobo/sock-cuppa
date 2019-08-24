@@ -1,0 +1,11 @@
+{
+    "remote_addr": "127.0.0.1:3000",
+    "local_port": 20000,
+    "enable_report": true,
+    "monitor_interval": 3,
+    "monitor_timeout": 3,
+    "report_interval": 30,
+    "report_threshold": 0,
+    "log_path": "cuppa.log",
+    "push_url": "https://sc.ftqq.com/SCU56274T685e45dcde636400a9f6bc37594bb7295d3d19c3459db.send"
+}
