@@ -110,12 +110,15 @@ func (s *Server)handle(conn net.Conn) {
         tconn.SetKeepAlive(true)
         tconn.SetKeepAlivePeriod(time.Duration(120 * time.Second))
     }
-    remoteAddr := conn.RemoteAddr()
+    remoteAddr := request.RemoteAddr()
+    clientAddr := conn.RemoteAddr()
     defer func() {
         if _, ok := conn.(net.Conn); ok {
+            debug.Printf("client connect close[clientaddr %s]", clientAddr)
             conn.Close()
         }
         if _, ok := request.(net.Conn); ok {
+            debug.Printf("remote connect close[remoteaddr %s]", remoteAddr)
             request.Close()
         }
     }()
@@ -127,7 +130,7 @@ func (s *Server)handle(conn net.Conn) {
 	for i := 0; i < 2; i++ {
 		e := <-errCh
 		if e != nil {
-			debug.Printf("tcp tunnel[clientaddr %s] get an error: %s", remoteAddr.String() ,e)
+			debug.Printf("tcp tunnel get an error: %s", e)
 			return
 		}
 	}
@@ -245,7 +248,6 @@ func main() {
         fmt.Errorf("config.json: monitor_timeout must > 0 and must be an int")
     }
     debug = log.New(logFile, "[Debug]", log.LstdFlags)
-    debug.Printf("ok")
 
     server := Server{}
     server.config = config
