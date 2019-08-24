@@ -127,12 +127,9 @@ func (s *Server)handle(conn net.Conn) {
     errCh := make(chan error, 2)
 	go s.proxy(request, inbuff, errCh)
 	go s.proxy(conn, outbuff, errCh)
-	for i := 0; i < 2; i++ {
-		e := <-errCh
-		if e != nil {
-			debug.Printf("tcp tunnel get an error: %s", e)
-			return
-		}
+	e := <-errCh
+	if e != nil {
+		debug.Printf("tcp tunnel get an error: %s", e)
 	}
 	return
 }
