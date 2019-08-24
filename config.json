@@ -5,7 +5,7 @@
     "monitor_interval": 3,
     "monitor_timeout": 3,
     "report_interval": 300,
-    "report_threshold": 1,
+    "report_threshold": 10,
     "log_path": "cuppa.log",
     "push_url": ""
 }
