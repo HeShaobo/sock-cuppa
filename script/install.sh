@@ -1,20 +1,11 @@
 #! /bin/bash
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
-#===============================================================================================
-#   System Required:  CentOS, Debian, Ubuntu
-#   Description: One click Install Shadowsocks-go server
-#   Author: Teddysun <i@teddysun.com>
-#   Thanks: @cyfdecyf <https://twitter.com/cyfdecyf>
-#   Intro:  http://teddysun.com/392.html
-#===============================================================================================
 
 clear
 echo ""
 echo "#############################################################"
-echo "# One click Install Shadowsocks-go server                   #"
-echo "# Intro: http://teddysun.com/392.html                       #"
-echo "# Author: Teddysun <i@teddysun.com>                         #"
+echo "# One click Instal cuppa server                             #"
 echo "# Thanks: @cyfdecyf <https://twitter.com/cyfdecyf>          #"
 echo "#############################################################"
 echo ""

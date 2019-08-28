@@ -166,9 +166,9 @@ func (s *Server)report() {
     }
     s.monitorResultList = make([]*MonitorResult, 0)
     rate := (float32(fails) / float32(len)) * 100
+    debug.Printf("detection report: last %d minites failure rate %.2f%%, detection request total: %d", s.config.MonitorInterval/60, rate, len)
     if rate >= float32(s.config.ReportThreshold) {
         text := fmt.Sprintf("Cuppa探测报告(最近%d分钟失败率%.2f%%)", s.config.ReportInterval/60, rate)
-        debug.Printf(text)
         if s.config.EnableReport {
             u := s.config.PushUrl + "?text=" + url.QueryEscape(text)
             _, err := http.Get(u)
